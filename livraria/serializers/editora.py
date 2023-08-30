@@ -1,7 +1,7 @@
-from livraria.models import editora
+from livraria.models import Editora
 from rest_framework.serializers import ModelSerializer
 
 class EditoraSerializer(ModelSerializer):
     class Meta:
-        model = editora
+        model = Editora
         fields = "__all__"

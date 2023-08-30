@@ -1,7 +1,7 @@
-from livraria.models import autor
+from livraria.models import Autor
 from rest_framework.serializers import ModelSerializer
 
 class AutorSerializer(ModelSerializer):
     class Meta:
-        model = autor
+        model = Autor
         fields = "__all__"

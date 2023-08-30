@@ -1,5 +1,5 @@
 from livraria.models import Livro
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, CharField
 
 class LivroSerializer(ModelSerializer):
     class Meta:
@@ -14,6 +14,7 @@ class LivroDetailSerializer(ModelSerializer):
         depth = 1
 
 class LivroListSerializer(ModelSerializer):
+    capa = CharField(source="capa.url")
     class Meta:
         model = Livro
-        fields = ["id", "titulo", "preco"]
+        fields = ["id", "titulo", "preco", "capa"]
