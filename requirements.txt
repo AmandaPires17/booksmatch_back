@@ -7,8 +7,10 @@ django-cors-headers==4.2.0
 django-filter==23.2
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2
+netifaces==0.11.0
 Pillow==10.0.0
 pyjwt==2.8.0
+python-dotenv==1.0.0
 python-magic==0.4.27
 pytz==2023.3
 setuptools==68.1.0

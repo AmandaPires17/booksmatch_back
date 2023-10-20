@@ -1,11 +1,14 @@
 
-import os
 from pathlib import Path
+import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+MODE = os.getenv("MODE")
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECRET_KEY = 'django-insecure-hl+@8q$p1p9%*!kou9-7-2q5keky&&t)2gr%+z*q2+%p!5&i%z'
-
 MODE = os.getenv("MODE", "DEVELOPMENT")
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -44,7 +47,6 @@ MIDDLEWARE = [
 ]
 
 # App Uploader settings
-MEDIA_URL = "http://191.52.55.53:19003/media/"
 MEDIA_ENDPOINT = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 FILE_UPLOAD_PERMISSIONS = 0o640
@@ -117,10 +119,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -135,14 +133,15 @@ REST_FRAMEWORK = {
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+STATIC_URL = 'static/'
 MEDIA_ENDPOINT = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 FILE_UPLOAD_PERMISSIONS = 0o640
 
-if MODE == "DEVELOPMENT":
+if MODE in ["PRODUCTION", "MIGRATE"]:
+    MEDIA_URL = '/media/' 
+else:    
     MY_IP = os.getenv("MY_IP", "127.0.0.1")
     MEDIA_URL = f"http://{MY_IP}:19003/media/"
-else:
-    MEDIA_URL = "/media/"
 
-print(MODE, MY_IP, MEDIA_URL)
+print(MODE, MEDIA_URL, DATABASES)
