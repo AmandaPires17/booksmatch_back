@@ -11,8 +11,8 @@ MODE = os.getenv("MODE")
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False")
-ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://localhost:8000", "https://*.fl0.io/", "http://localhost:5173/"]
+ALLOWED_HOSTS = ["booksmatch"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://localhost:8000", "https://booksmatch.fl0.io/", "http://localhost:5173/"]
 
 # Application definition
 
