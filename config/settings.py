@@ -11,7 +11,7 @@ MODE = os.getenv("MODE")
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False")
-ALLOWED_HOSTS = ["booksmatch-dev-emgd.2.ie-1.fl0.io"]
+ALLOWED_HOSTS = ["booksmatch-dev-emgd.2.ie-1.fl0.io", "0.0.0.0"]
 CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://localhost:8000", "https://booksmatch-dev-emgd.2.ie-1.fl0.io/", "http://localhost:5173/"]
 
 # Application definition
